@@ -1,17 +1,19 @@
-import mysql, { RowDataPacket } from 'mysql2';
+import mysql from 'mysql2';
+
+console.log('ㅋ');
 
 const DB = mysql.createConnection({
-  host: '192.168.100.64',
-  user: 'admin_dal',
-  password: '1234',
-  database: 'stocktaxi'
-})
-
-DB.connect(()=>{
-  console.log('DB접속');
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'testIA'
 });
 
-DB.query('select * from user_infor', (err: Error,result: RowDataPacket)=> {
+DB.connect(()=>{
+  console.log('DB시작');
+});
+
+DB.query('select * from user_information', (err,result)=>{
   if (err) throw err;
   console.log(result);
 })
